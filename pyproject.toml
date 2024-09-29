@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "spmi_vent_bot"
+version = "0.1.0"
+description = "Telegram bot for SPMI vent system"
+authors = ["karrless <konstantin.geydarov@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiogram = "^3.13.1"
+seaborn = "^0.13.2"
+SQLAlchemy = "^2.0.35"
+psycopg2 = "^2.9.9"
+python-dotenv = "^1.0.1"
+loguru = "^0.7.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
