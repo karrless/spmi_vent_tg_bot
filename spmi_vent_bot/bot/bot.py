@@ -2,6 +2,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
+from loguru import logger
 
 from spmi_vent_bot.config import TOKEN
 
@@ -13,3 +14,5 @@ bot = Bot(
 
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
+
+logger.info("Бот создан")
