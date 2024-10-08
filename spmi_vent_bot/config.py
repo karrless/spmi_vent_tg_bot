@@ -4,8 +4,15 @@ from spmi_vent_bot.errors import MissingEnvironmentVariable
 
 load_dotenv()
 
-DEBUG = os.getenv("DEBUG")
-TOKEN = os.getenv("TOKEN")
+def get_env(name: str):
+    try:
+        return os.environ[name]
+    except KeyError:
+        raise MissingEnvironmentVariable(name)
 
-if any(list(map(lambda x: x is None,[DEBUG, TOKEN]))):
-    raise MissingEnvironmentVariable
+
+DEBUG = get_env("DEBUG")
+
+TOKEN = get_env("TOKEN")
+
+DB_URI = get_env("DB_URI")
