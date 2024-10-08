@@ -3,6 +3,8 @@ from loguru import logger
 
 from spmi_vent_bot.config import DEBUG
 
+from spmi_vent_bot import database as db
+
 
 async def main():
     """
@@ -13,6 +15,9 @@ async def main():
                level=f"{"DEBUG" if DEBUG else "INFO"}",
                rotation="12:00")
     logger.info("Старт скрипта")
+
+    await db.create()
+    db.connect()
 
     from spmi_vent_bot.bot import bot, dp
     await bot.delete_webhook(drop_pending_updates=True)
